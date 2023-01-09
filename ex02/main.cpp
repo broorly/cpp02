@@ -11,5 +11,9 @@ std::cout << a++ << std::endl;
 std::cout << a << std::endl;
 std::cout << b << std::endl;
 std::cout << Fixed::max( a, b ) << std::endl;
+Fixed c = Fixed(2.06f);
+a = Fixed(5);
+a/=c;
+std::cout << "a/=c" << a << std::endl;
 return 0;
 }

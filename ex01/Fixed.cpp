@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:06:33 by mrafik            #+#    #+#             */
-/*   Updated: 2023/01/09 19:31:51 by mrafik           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:42:43 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed(const float f) {
 Fixed::~Fixed() {
 	std::cout << "destructor called" << std::endl;
 }
-
+ 
 Fixed::Fixed(const Fixed &fixed) {
   std::cout << "Copy constructor called" << std::endl;
   this->raw_ = fixed.getRawBits();

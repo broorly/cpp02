@@ -57,16 +57,12 @@ Fixed Fixed::operator-=(const Fixed &t) {
 }
 
 Fixed Fixed::operator*=(const Fixed &t) {
-  this->raw_ =
-      ((long long)this->raw_ * (long long)t.getRawBits()) >>
-      this->fractional_bits_;
+  this->raw_ = (this->raw_ * t.getRawBits()) >> this->fractional_bits_;
 	return *this;
 }
 
 Fixed Fixed::operator/=(const Fixed &t) {
-  this->raw_ =
-      ((long long)this->raw_ << this->fractional_bits_) /
-      t.getRawBits();
+  this->raw_ = (this->raw_ << this->fractional_bits_) / t.getRawBits();
 	return *this;
 }
 
