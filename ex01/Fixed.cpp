@@ -6,7 +6,7 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:06:33 by mrafik            #+#    #+#             */
-/*   Updated: 2023/01/09 21:42:43 by mrafik           ###   ########.fr       */
+/*   Updated: 2023/01/11 20:24:31 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,14 @@ Fixed &Fixed::operator=(Fixed fixed) {
 	return *this;
 }
 
+float Fixed::toFloat(void) const {
+	return ((float)this->raw_ / (1 << this->fractional_bits_));
+}
+
+int Fixed::toInt(void) const {
+  return (this->raw_ >> this->fractional_bits_);
+}
+
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
   out << fixed.toFloat();
   return out;
@@ -57,12 +65,4 @@ int Fixed::getRawBits(void) const {
 void Fixed::setRawBits(int const raw) {
   std::cout << "setRawBits member function called" << std::endl;
   this->raw_ = raw;
-}
-
-float Fixed::toFloat(void) const {
-	return ((float)this->raw_ / (1 << this->fractional_bits_));
-}
-
-int Fixed::toInt(void) const {
-  return (this->raw_ >> this->fractional_bits_);
 }
