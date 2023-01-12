@@ -16,17 +16,12 @@ class Fixed {
   Fixed(const float f);
   ~Fixed();
   Fixed(const Fixed &fixed);
-  Fixed &operator=(Fixed fixed);
+  Fixed &operator=(const Fixed& fixed);
 
   Fixed& operator++();
   Fixed operator++(int);
   Fixed& operator--();
   Fixed operator--(int);
-
-  Fixed operator+=(const Fixed &t);
-	Fixed operator-=(const Fixed &t);
-	Fixed operator*=(const Fixed &t);
-	Fixed operator/=(const Fixed &t);
 
   int getRawBits(void) const;
   void setRawBits(int const raw);
@@ -43,10 +38,10 @@ class Fixed {
 	static const Fixed &min(const Fixed &f1, const Fixed &f2);
 	static Fixed &max(Fixed &f1, Fixed &f2);
 	static const Fixed &max(const Fixed &f1, const Fixed &f2);
-  Fixed operator+(const Fixed &t);
-  Fixed operator-(const Fixed &t);
-  Fixed operator*(const Fixed &t);
-  Fixed operator/(const Fixed &t);
+  Fixed operator+(const Fixed &t)const;
+  Fixed operator-(const Fixed &t)const;
+  Fixed operator*(const Fixed &t)const;
+  Fixed operator/(const Fixed &t)const;
 
 };
 

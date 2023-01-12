@@ -6,14 +6,15 @@
 /*   By: mrafik <mrafik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:06:36 by mrafik            #+#    #+#             */
-/*   Updated: 2023/01/09 19:06:37 by mrafik           ###   ########.fr       */
+/*   Updated: 2023/01/12 23:47:35 by mrafik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Fixed.hpp"
 
-int main( void ) {
+int main( void ) 
+{
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );

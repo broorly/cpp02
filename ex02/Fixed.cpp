@@ -19,9 +19,9 @@ Fixed::Fixed(const Fixed &fixed) {
 	this->raw_ = fixed.getRawBits();
 }
   
-Fixed &Fixed::operator=(Fixed fixed) {
+Fixed &Fixed::operator=(const Fixed& fixed) {
 	raw_ = fixed.getRawBits();
-	return *this;
+	return (*this);
 }
 
 Fixed &Fixed::operator++() {
@@ -44,26 +44,6 @@ Fixed Fixed::operator--(int) {
   Fixed tmp(*this);
   this->raw_--;
   return tmp;
-}
-
-Fixed Fixed::operator+=(const Fixed &t) {
-  this->raw_ = this->raw_ + t.raw_;
-	return *this;
-}
-
-Fixed Fixed::operator-=(const Fixed &t) {
-  this->raw_ = this->raw_ - t.raw_;
-	return *this;
-}
-
-Fixed Fixed::operator*=(const Fixed &t) {
-  this->raw_ = (this->raw_ * t.getRawBits()) >> this->fractional_bits_;
-	return *this;
-}
-
-Fixed Fixed::operator/=(const Fixed &t) {
-  this->raw_ = (this->raw_ << this->fractional_bits_) / t.getRawBits();
-	return *this;
 }
 
 int Fixed::getRawBits(void) const {
@@ -139,26 +119,26 @@ bool Fixed :: operator>=(const Fixed &t) const{
   return this->raw_ >= t.getRawBits() ? true : false;
 }
 
-Fixed Fixed :: operator+(const Fixed &t) {
+Fixed Fixed :: operator+(const Fixed &t) const{
   Fixed tmp;
   tmp.setRawBits(this->raw_ + t.getRawBits());
   return tmp;
 }
 
-Fixed Fixed :: operator-(const Fixed &t) {
+Fixed Fixed :: operator-(const Fixed &t) const{
  Fixed tmp;
   tmp.setRawBits(this->raw_ - t.getRawBits());
   return tmp;
 }
 
-Fixed Fixed :: operator*(const Fixed &t) {
+Fixed Fixed :: operator*(const Fixed &t)const {
   Fixed tmp;
   tmp.setRawBits((this->raw_ * t.getRawBits()) >> this->fractional_bits_);
-  return(tmp.getRawBits());
+  return(tmp);
 }
 
-Fixed Fixed :: operator/(const Fixed &t) {
+Fixed Fixed :: operator/(const Fixed &t)const {
  Fixed tmp;
   tmp.setRawBits((this->raw_ << this->fractional_bits_) / t.getRawBits());
-  return(tmp.getRawBits());
+  return(tmp);
 }
